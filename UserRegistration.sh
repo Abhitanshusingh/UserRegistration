@@ -1,7 +1,7 @@
 #!/bin/bash -x
 printf "Welcome to user registration\n"
 #First name starts with Cap and has minimum 3 characters
-function isFirstName()
+function isValidFirstName()
 {
 	read -p "Enter your first name : "  firstName
 	firstNamePattern="^[A-Z][a-z]{2}"
@@ -12,10 +12,10 @@ function isFirstName()
 		printf "In valid\n"
 	fi
 }
-isFirstName
+isValidFirstName
 
 #Last name starts with Cap and has minimum 3 characters
-function isLastName()
+function isValidLastName()
 {
 	read -p "Enter your last name : "  lastName
 	lastNamePattern="^[A-Z][a-z]{2}"
@@ -26,7 +26,7 @@ function isLastName()
 		printf "In valid\n"
 	fi
 }
-isLastName
+isValidLastName
 
 #Logic for to check valid email
 function isEmail()
@@ -43,7 +43,7 @@ function isEmail()
 isEmail
 
 #Logic for to check valid mobile number
-function isMobileNumber()
+function isValidMobileNumber()
 {
 	read -p "Enter your country code then mobile number : "  mobileNumber
 	mobileNumberPattern="^[0-9]{2}[ ][0-9]{10}"
@@ -54,4 +54,18 @@ function isMobileNumber()
 		printf "In valid\n"
 	fi
 }
-isMobileNumber
+isValidMobileNumber
+
+#Logic for password
+function isValidPassword()
+{
+	read -p "Enter password minimum 8 character : " userPassword
+	passwordPattern="[a-zA-Z]{8,}"
+	if [[ $userPassword =~ $passwordPattern ]]
+	then
+		printf "Valid\n"
+	else
+		printf "In valid\n"
+	fi
+}
+isValidPassword
