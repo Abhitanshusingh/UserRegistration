@@ -65,7 +65,7 @@ function isValidPassword()
 	then
 		isOneUpperCase
 	else
-		printf "In valid\n"
+		printf "Enter minimum 8 character\n"
 	fi
 }
 
@@ -77,7 +77,7 @@ function isOneUpperCase()
 	then
 		isOneNumeric
 	else
-		printf "In valid\n"
+		printf "Enter at least one upper case\n"
 	fi
 }
 
@@ -87,9 +87,22 @@ function isOneNumeric()
 	oneNumericPattern="[0-9]{1,}"
 	if [[ $userPassword =~ $oneNumericPattern ]]
 	then
+		isOneSpecila
+	else
+		printf "Enter at least one number\n"
+	fi
+}
+
+#Logic for to check at least one special character
+function isOneSpecila()
+{
+	specialChar='!@#$%^&*()_+|"?{}><'
+	oneSpecialPattern="^[^$specialChar]*[$specialChar][^$specialChar]*$"
+	if [[ $userPassword =~ $oneSpecialPattern ]]
+	then
 		printf "Valid\n"
 	else
-		printf "In valid\n"
+		printf "Enter exactly one special character\n"
 	fi
 }
 isValidPassword
