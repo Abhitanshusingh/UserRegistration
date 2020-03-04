@@ -55,3 +55,30 @@ function isMobileNumber()
 	fi
 }
 isMobileNumber
+
+#Logic for password minimum 8 charecter
+function isValidPassword()
+{
+	read -p "Enter password minimum 8 character : " userPassword
+	passwordPattern=".{8,}"
+	if [[ $userPassword =~ $passwordPattern ]]
+	then
+		isOneUpperCase
+	else
+		printf "In valid\n"
+	fi
+}
+
+#Logic for check one upper case
+function isOneUpperCase()
+{
+	oneUpperCasePattern="[A-Z]{1,}"
+	if [[ $userPassword =~ $oneUpperCasePattern ]]
+	then
+		printf "Valid\n"
+	else
+		printf "In valid\n"
+	fi
+}
+isValidPassword
+
