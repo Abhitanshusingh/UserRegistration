@@ -1,12 +1,9 @@
 #!/bin/bash -x
 printf "Welcome to user registration\n"
-read -p "Enter your first name :" userInput1
-read -p "Enter your last name  :" userInput2
-read -p "Enter your email id   :" userInput3
 #First name starts with Cap and has minimum 3 characters
 function isFirstName()
 {
-	firstName=$1
+	read -p "Enter your first name : "  firstName
 	firstNamePattern="^[A-Z][a-z]{2}"
 	if [[ $firstName =~ $firstNamePattern ]]
 	then
@@ -15,11 +12,12 @@ function isFirstName()
 		printf "In valid\n"
 	fi
 }
-isFirstName $userInput1
+isFirstName
+
 #Last name starts with Cap and has minimum 3 characters
 function isLastName()
 {
-	lastName=$1
+	read -p "Enter your last name : "  lastName
 	lastNamePattern="^[A-Z][a-z]{2}"
 	if [[ $lastName =~ $lastNamePattern ]]
 	then
@@ -28,17 +26,32 @@ function isLastName()
 		printf "In valid\n"
 	fi
 }
-isLastName $userInput2\
+isLastName
+
 #Logic for to check valid email
 function isEmail()
 {
-	email=$1
+	read -p "Enter your email id : "  email
 	emailPattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]{2,}"
 	if [[ $email =~ $emailPattern ]]
-   then
-      printf "Valid\n"
-   else
-      printf "In valid\n"
-   fi
+	then
+		printf "Valid\n"
+	else
+		printf "In valid\n"
+	fi
 }
-isEmail $userInput3
+isEmail
+
+#Logic for to check valid mobile number
+function isMobileNumber()
+{
+	read -p "Enter your country code then mobile number : "  mobileNumber
+	mobileNumberPattern="^[0-9]{2}[ ][0-9]{10}"
+	if [[ $mobileNumber =~ $mobileNumberPattern ]]
+	then
+		printf "Valid\n"
+	else
+		printf "In valid\n"
+	fi
+}
+isMobileNumber
