@@ -75,10 +75,21 @@ function isOneUpperCase()
 	oneUpperCasePattern="[A-Z]{1,}"
 	if [[ $userPassword =~ $oneUpperCasePattern ]]
 	then
+		isOneNumeric
+	else
+		printf "In valid\n"
+	fi
+}
+
+#Logic for to check one numeric number
+function isOneNumeric()
+{
+	oneNumericPattern="[0-9]{1,}"
+	if [[ $userPassword =~ $oneNumericPattern ]]
+	then
 		printf "Valid\n"
 	else
 		printf "In valid\n"
 	fi
 }
 isValidPassword
-
