@@ -32,7 +32,7 @@ isLastName
 function isEmail()
 {
 	read -p "Enter your email id : "  email
-	emailPattern="^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]{2,}"
+	emailPattern="^abc([+]?[-]?[.]?[_]?[\w]+)?[@][a-z]+[.][a-z]{2,}([.]?[a-z]+)?$"
 	if [[ $email =~ $emailPattern ]]
 	then
 		printf "Valid\n"
